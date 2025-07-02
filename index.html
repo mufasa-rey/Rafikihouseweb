@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rafiki House</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com "></script>
+
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Rafiki House Design System - Sophisticated Navy & Gold Palette */
+    :root {
+      --rafiki-deep-navy: 217 91% 18%;
+      --rafiki-warm-gold: 45 93% 58%;
+      --rafiki-navy-variant: 220 39% 25%;
+      --rafiki-muted-navy: 215 25% 27%;
+      --rafiki-light-gold: 48 100% 78%;
+      --rafiki-rich-gold: 43 87% 48%;
+    }
+
+    .bg-rafiki-gradient {
+      background: linear-gradient(135deg, hsl(var(--rafiki-deep-navy)) 0%, hsl(var(--rafiki-navy-variant)) 100%);
+    }
+
+    .bg-gold-gradient {
+      background: linear-gradient(135deg, hsl(var(--rafiki-warm-gold)) 0%, hsl(var(--rafiki-rich-gold)) 100%);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, hsl(var(--rafiki-warm-gold)), hsl(var(--rafiki-light-gold)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glass {
+      @apply bg-slate-800/60 backdrop-blur-sm border border-slate-700/50;
+    }
+
+    .smooth-container {
+      @apply rounded-3xl shadow-2xl transition-all duration-500;
+    }
+
+    .hover-lift:hover {
+      @apply scale-105 -translate-y-1;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-300px * 10 - 24px * 9)); }
+    }
+
+    .animate-scroll {
+      animation: scroll 30s linear infinite;
+    }
+
+    .animate-scroll:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen">
+
+<!-- Header -->
+<header class="relative z-50 px-6 py-4 bg-slate-900 border-b border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    
+    <!-- Logo and Brand -->
+    <div class="flex items-center space-x-3">
+      <img 
+        src="logo.jpeg?v=2000" 
+        alt="Rafiki House Logo" 
+        class="w-16 h-16 md:w-20 md:h-20 rounded-full"
+      />
+      <span class="text-amber-400 font-bold text-xl md:text-2xl">Rafiki House</span>
+    </div>
+
+    <!-- Navigation Links (Desktop only) -->
+<nav class="hidden md:flex items-center space-x-6">
+  <!-- Homes -->
+  <div class="flex items-center px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700">
+    <span class="text-white font-medium">🏠 Homes</span>
+  </div>
+
+  <!-- Experiences (Clickable Link) -->
+  <a 
+    href="https://feedback-form-topaz.vercel.app/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="flex items-center space-x-2 px-4 py-2 rounded-full hover:bg-slate-800/30 transition duration-300"
+  >
+    <span class="bg-amber-400 text-slate-900 text-xs px-2 py-0.5 rounded-full font-bold">NEW</span>
+    <span class="text-slate-300">✨ Experiences</span>
+  </a>
+
+  <!-- Services -->
+  <div class="flex items-center space-x-2 px-4 py-2 rounded-full hover:bg-slate-800/30 transition duration-300">
+    <span class="bg-amber-400 text-slate-900 text-xs px-2 py-0.5 rounded-full font-bold">NEW</span>
+    <span class="text-slate-300">🛎️ Services</span>
+  </div>
+</nav>
+
+
+    <!-- Right Section: Actions -->
+    <div class="hidden md:flex items-center space-x-4">
+      <button class="text-slate-300 hover:text-amber-400 transition font-medium">
+        Favourite
+      </button>
+
+      <!-- Avatar Placeholder -->
+      <div class="w-8 h-8 bg-slate-700 rounded-full hover:bg-slate-600 transition"></div>
+
+      <!-- Menu Grid Icon -->
+      <button class="p-2 hover:bg-slate-800 rounded-full transition">
+        <div class="w-4 h-4 grid grid-cols-3 gap-0.5">
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+          <div class="w-1 h-1 bg-slate-400 rounded-full"></div>
+        </div>
+      </button>
+    </div>
+    
+  </div>
+</header>
+
+
+<!-- Hero Section -->
+<section class="px-6 py-12">
+  <div class="max-w-4xl mx-auto text-center mb-12">
+    <h1 class="text-5xl md:text-6xl font-bold text-amber-400 mb-4">RAFIKI HOUSE</h1>
+    <div class="w-24 h-1 bg-amber-400 mx-auto mb-6"></div>
+    <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+      Experience the finest culinary journey with our carefully curated luxury stays
+    </p>
+  </div>
+
+<!-- Location Search Bar -->
+<section class="max-w-4xl mx-auto mt-8">
+  <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl p-2 shadow-2xl border border-slate-700">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+
+      <!-- Location (Clickable) -->
+      <a 
+        href="https://maps.app.goo.gl/ZgAi4ovMKsHJvftT9?g_st=aw" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="block bg-slate-700/50 rounded-2xl p-4 hover:bg-slate-700/70 transition-all duration-300 cursor-pointer"
+      >
+        <div class="text-slate-400 text-sm font-medium mb-1">Location</div>
+        <div class="text-white font-medium">Nanyuki, Kenya</div>
+      </a>
+
+      <!-- Check-in -->
+      <div class="bg-slate-700/50 rounded-2xl p-4 hover:bg-slate-700/70 transition-all duration-300 cursor-pointer">
+        <div class="text-slate-400 text-sm font-medium mb-1">Check in</div>
+        <div class="text-white font-medium">Select dates</div>
+      </div>
+
+      <!-- Check-out -->
+      <div class="bg-slate-700/50 rounded-2xl p-4 hover:bg-slate-700/70 transition-all duration-300 cursor-pointer">
+        <div class="text-slate-400 text-sm font-medium mb-1">Check out</div>
+        <div class="text-white font-medium">Select dates</div>
+      </div>
+
+      <!-- Guests + Search Button -->
+      <div class="bg-slate-700/50 rounded-2xl p-4 hover:bg-slate-700/70 transition-all duration-300 cursor-pointer relative">
+        <div class="text-slate-400 text-sm font-medium mb-1">Guests</div>
+        <div class="text-white font-medium">Add guests</div>
+
+        <!-- Search Button -->
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-lg">
+          <svg class="w-5 h-5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Featured Properties Section -->
+<section class="py-16 overflow-hidden">
+  <div class="mb-12 px-6 text-center">
+    <h2 class="text-3xl font-bold text-amber-400 mb-4">Featured Properties</h2>
+    <p class="text-slate-300 max-w-2xl mx-auto">
+      Discover our most luxurious accommodations with stunning views and premium amenities
+    </p>
+  </div>
+
+  <!-- Scrolling Video Section -->
+  <section class="py-16 overflow-hidden">
+    <div class="relative">
+      <div class="flex animate-scroll space-x-6 px-6" style="animation: scroll 30s linear infinite;">
+        <!-- Add property cards dynamically (e.g., using an array) -->
+        <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <!-- Property Card -->
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <!-- Local Image Path -->
+              <img src="1.jpeg" alt="Luxury Living Room Suite" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Luxury Living Room Suite</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.9</span>
+                </div>
+                <div class="text-amber-400 font-bold">$450/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat for other property cards (update image paths to 2.jpeg, 3.jpeg, etc.) -->
+        <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="2.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="3.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="4.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="5.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="6.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="7.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="8.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="9.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="10.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="11.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="12.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="13.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="14.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="15.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$280/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                <div class="flex-shrink-0 w-72 group cursor-pointer">
+          <div class="bg-slate-800/60 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+            <div class="relative h-48 overflow-hidden">
+              <img src="16.jpeg" alt="Cozy Cat-Friendly Apartment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-amber-400 transition-colors duration-300">Cozy Cat-Friendly Apartment</h3>
+              <p class="text-slate-400 text-sm mb-3">Available now</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-1">
+                  <span class="text-amber-400">★</span>
+                  <span class="text-slate-300 text-sm">4.7</span>
+                </div>
+                <div class="text-amber-400 font-bold">$300/night</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Add more property cards as needed, ensuring the image sources are relative, e.g., 3.jpeg, 4.jpeg -->
+      </div>
+    </div>
+  </section>
+
+<!-- Popular Homes Section -->
+<section class="px-6 py-16">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-2xl font-bold text-amber-400">
+        Rafiki House Collection - Warm Stays, Lasting Memories
+      </h2>
+      <button class="p-2 hover:bg-slate-800 rounded-full transition-colors duration-300">
+        <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+      <!-- Property Cards -->
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="30.jpeg" alt="Ginger House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Ginger House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="14.jpeg" alt="Sage House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Sage House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="18.jpeg" alt="Oregano House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Oregano House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="25.jpeg" alt="Rosmarino House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Rosmarino House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="7.jpeg" alt="Paprika House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Paprika House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="29.jpeg" alt="Amaranth House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Amaranth House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="21.jpeg" alt="Cottage House" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Cottage House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer">
+        <div class="bg-slate-800/40 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-slate-700/50 hover:border-amber-400/50 transition-all duration-500 hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <img src="logo.jpeg" alt="Cottage House" class="w-full h-full object-cover group-hover:scale-150 transition-transform duration-700" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-medium mb-1 group-hover:text-amber-400 transition-colors duration-300">Cottage House</h3>
+            <div class="flex items-center space-x-1 mb-2">
+              <span class="text-amber-400">★</span>
+              <span class="text-slate-300 text-sm">5.0</span>
+            </div>
+            <p class="text-slate-400 text-sm">KSh 10,872 for 2 nights</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-slate-900 text-slate-300 py-12 mt-20 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    
+    <!-- Company Info -->
+    <div>
+      <h3 class="text-white text-lg font-semibold mb-4">Rafiki Homes</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Where comfort meets nature. Experience handpicked vacation homes designed to give you warmth and lasting memories.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-amber-400 transition-colors">Home</a></li>
+        <li><a href="#" class="hover:text-amber-400 transition-colors">Popular Homes</a></li>
+        <li><a href="#" class="hover:text-amber-400 transition-colors">Contact</a></li>
+        <li><a href="#" class="hover:text-amber-400 transition-colors">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">Contact</h4>
+      <ul class="space-y-2 text-sm">
+        <li>Email: <a href="mailto:info@rafikihomes.com" class="hover:text-amber-400 transition-colors">info@rafikihomes.com</a></li>
+        <li>Phone: <a href="tel:+254700000000" class="hover:text-amber-400 transition-colors">+254 700 000 000</a></li>
+        <li>Location: Nairobi, Kenya</li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h4 class="text-white text-sm font-semibold mb-4 uppercase tracking-wider">Follow Us</h4>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-amber-400 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12a9.994 9.994 0 008.333 9.85v-6.97H7.897v-2.88h2.436v-2.19c0-2.413 1.42-3.75 3.597-3.75 1.043 0 2.137.186 2.137.186v2.35h-1.204c-1.187 0-1.555.739-1.555 1.497v1.907h2.642l-.422 2.88h-2.22v6.97A10.003 10.003 0 0022 12z"/>
+          </svg>
+        </a>
+        <a href="#" class="hover:text-amber-400 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22.162 5.656a8.177 8.177 0 01-2.357.646A4.119 4.119 0 0021.567 4a8.224 8.224 0 01-2.605.996A4.106 4.106 0 0015.448 4c-2.266 0-4.104 1.838-4.104 4.104 0 .322.036.635.105.935-3.41-.171-6.433-1.805-8.454-4.29a4.098 4.098 0 00-.555 2.063c0 1.423.724 2.678 1.824 3.412a4.093 4.093 0 01-1.86-.514v.052c0 1.987 1.413 3.647 3.29 4.023a4.1 4.1 0 01-1.853.07 4.107 4.107 0 003.834 2.851A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.843c7.547 0 11.675-6.252 11.675-11.675 0-.177-.004-.355-.012-.53A8.345 8.345 0 0022.162 5.656z"/>
+          </svg>
+        </a>
+        <a href="#" class="hover:text-amber-400 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.004 2.003C6.48 2.003 2 6.486 2 12.008c0 4.419 3.203 8.09 7.438 8.92v-6.308h-2.24v-2.612h2.24V9.846c0-2.216 1.318-3.438 3.34-3.438.969 0 1.98.173 1.98.173v2.18h-1.116c-1.104 0-1.448.688-1.448 1.393v1.67h2.46l-.394 2.612h-2.066v6.308C18.797 20.099 22 16.426 22 12.008c0-5.522-4.48-10.005-9.996-10.005z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="text-center text-sm text-slate-500 mt-10 border-t border-slate-800 pt-6">
+    © 2025 Rafiki Homes. All rights reserved.
+  </div>
+</footer>
+
+
+<!-- Scroll Animation CSS -->
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+</style></body> 
+</html>
